@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-} */
+#app{
+    --tw-bg-opacity: 1;
+    background-color: rgb(236 239 242 / var(--tw-bg-opacity));
+}
