@@ -8,10 +8,12 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <!-- Create Header -->
-  <TheHeader />
+  <div>
+    <!-- Create Header -->
+    <TheHeader />
 
-  <RouterView />
+    <RouterView />
+  </div>
 </template>
 
 <style scoped></style>
