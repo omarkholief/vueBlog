@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { format } from 'date-fns'
 
 const props = defineProps(['post'])
-const post = ref(props.post)
+const post = computed(() => props.post)
 </script>
 <template>
   <li class="ring ring-gray-200 shadow-sm rounded-xl overflow-hidden">
