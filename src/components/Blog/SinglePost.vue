@@ -4,10 +4,6 @@ import { format } from 'date-fns'
 
 const props = defineProps(['post'])
 const post = ref(props.post)
-
-// const formateDate = () => {
-//   return format(new Date(post.value.publishedAt), 'dd MMMM-yyy')
-// }
 </script>
 <template>
   <li class="ring ring-gray-200 shadow-sm rounded-xl overflow-hidden">
