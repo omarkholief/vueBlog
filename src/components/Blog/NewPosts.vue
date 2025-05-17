@@ -6,13 +6,16 @@ import SinglePost from './SinglePost.vue'
 const search = ref('')
 const posts = ref([])
 const loading = ref(false)
+const apiKey = 'd483bf05-6c39-44dc-8f0c-fe371b606909'
 const getPosts = async () => {
   loading.value = true
   try {
     const res = await axios(
-      'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=80187c7925854a9ea1b66640fb1cbc78'
+      `https://eventregistry.org/api/v1/article/getArticles?apiKey=${apiKey}&action=getArticles&keyword=Tesla Inc&lang=eng`
     )
-    posts.value = res.data.articles
+    console.log(res)
+    posts.value = res.data.articles.results
+
     loading.value = false
   } catch (error) {
     console.error(error)
@@ -22,16 +25,15 @@ onMounted(async () => await getPosts())
 
 const filterPosts = computed(() => {
   return posts.value.filter((post) => {
-    return (
-      post.title.toLowerCase().includes(search.value.toLowerCase().trim()) ||
-      post.author.toLowerCase().includes(search.value.toLowerCase().trim())
-    )
+    return post.title.toLowerCase().includes(search.value.toLowerCase().trim())
   })
 })
 </script>
 <template>
   <div>
-    <div v-if="loading" class="h-96 flex items-center justify-center">
+    <div
+      v-if="loading"
+      class="h-96 flex items-center justify-center">
       <div role="status">
         <svg
           aria-hidden="true"
